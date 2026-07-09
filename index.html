@@ -8,6 +8,9 @@
     <link rel="icon" type="image/png" href="https://github.com/BrunoCafe7/images/raw/7f38386601c86afec3fc88396945eee952f6bfe1/Logo-UEM.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -47,21 +50,45 @@
 <body class="bg-uem-light text-gray-800 antialiased selection:bg-accent-green selection:text-white relative">
 
     <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/554491333006" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.6)] transition-all duration-300 z-50 flex items-center justify-center group" aria-label="Fale conosco no WhatsApp">
+    <a href="https://wa.me/554491333006?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20da%20Especializa%C3%A7%C3%A3o%20em%20Fisiologia%20Integrativa%20e%20gostaria%20de%20saber%20mais." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.6)] transition-all duration-300 z-50 flex items-center justify-center group max-sm:bottom-20" aria-label="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp text-3xl"></i>
         <span class="absolute right-16 bg-white text-gray-800 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
             Dúvidas? Fale conosco!
         </span>
     </a>
 
+    <!-- Botão Scroll to Top -->
+    <button id="scroll-top-btn" class="fixed bottom-6 left-6 w-12 h-12 bg-uem-blue text-white rounded-full shadow-lg opacity-0 translate-y-4 transition-all duration-300 z-40 flex items-center justify-center hover:bg-blue-800" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Mobile Bottom CTA Bar -->
+    <div id="mobile-cta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-40 lg:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="block w-full bg-accent-green hover:bg-accent-hover text-white text-center font-bold py-3 px-6 rounded-xl text-sm transition-all hover:scale-[1.02] shadow-md">
+            Garanta sua vaga
+        </a>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-uem-dark/98 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 text-white text-2xl font-bold transform translate-x-full transition-transform duration-300 lg:hidden">
+        <a href="#universidade" class="hover:text-accent-green transition" onclick="closeMenu()">A UEM</a>
+        <a href="#expectativas" class="hover:text-accent-green transition" onclick="closeMenu()">Expectativas</a>
+        <a href="#curriculo" class="hover:text-accent-green transition" onclick="closeMenu()">Disciplinas</a>
+        <a href="#cronograma" class="hover:text-accent-green transition" onclick="closeMenu()">Cronograma</a>
+        <a href="#faq" class="hover:text-accent-green transition" onclick="closeMenu()">FAQ</a>
+        <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="bg-accent-green hover:bg-accent-hover text-white px-8 py-3 rounded-full text-lg mt-4" onclick="closeMenu()">
+            Inscreva-se
+        </a>
+    </div>
+
     <!-- 1. Header Dinâmico -->
     <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
             <div class="flex items-center gap-3 transition-opacity duration-300">
                 <!-- A imagem da UEM já é branca nativamente, então não precisa de filtro inicialmente -->
-                <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/branco-uem-modelo-01.png" alt="UEM" id="logo-uem" class="h-8 md:h-10 transition-all duration-300" style="filter: none;">
+                <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/branco-uem-modelo-01.png" alt="UEM" id="logo-uem" loading="lazy" class="h-8 md:h-10 transition-all duration-300" style="filter: none;">
                 <!-- A imagem do DFS precisa ficar branca inicialmente -->
-                <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/logo-dfs-03.png" alt="DFS" id="logo-dfs" class="h-8 md:h-10 transition-all duration-300" style="filter: brightness(0) invert(1);">
+                <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/logo-dfs-03.png" alt="DFS" id="logo-dfs" loading="lazy" class="h-8 md:h-10 transition-all duration-300" style="filter: brightness(0) invert(1);">
             </div>
             <nav class="hidden lg:flex space-x-8 text-white font-medium text-sm transition-colors duration-300" id="nav-links">
                 <a href="#universidade" class="hover:text-accent-green transition">A UEM</a>
@@ -70,9 +97,13 @@
                 <a href="#cronograma" class="hover:text-accent-green transition">Cronograma</a>
                 <a href="#faq" class="hover:text-accent-green transition">FAQ</a>
             </nav>
-            <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="bg-accent-green hover:bg-accent-hover text-white px-5 py-2 rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:scale-105">
+            <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="hidden sm:inline-block bg-accent-green hover:bg-accent-hover text-white px-5 py-2 rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:scale-105">
                 Inscreva-se
             </a>
+            <!-- Hamburger Button -->
+            <button id="menu-btn" class="lg:hidden text-white text-2xl focus:outline-none z-50" aria-label="Abrir menu">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
         </div>
     </header>
 
@@ -110,6 +141,7 @@
                         <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent-green text-xl"></i> Corpo docente altamente qualificado</li>
                         <li class="flex items-center gap-3"><i class="fas fa-calendar-alt text-accent-green text-xl"></i> Início: 03/08/2026</li>
                         <li class="flex items-center gap-3"><i class="fas fa-clock text-accent-green text-xl"></i> Inscrições abertas até 14/07/2026</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-hourglass-half text-accent-green text-xl"></i> <span id="countdown-timer" class="font-semibold text-white">Carregando...</span></li>
                     </ul>
                 </div>
             </div>
@@ -133,21 +165,21 @@
                 <div class="carousel-inner flex h-[300px] md:h-[500px]" id="uem-carousel">
                     <!-- Slide 1 -->
                     <div class="w-full flex-shrink-0 relative">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2022-09-01_Fachada_UEM-0605.jpg" alt="Fachada UEM" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2022-09-01_Fachada_UEM-0605.jpg" alt="Fachada UEM" loading="lazy" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 md:p-10">
                             <h3 class="text-white text-xl md:text-3xl font-bold">Tradição e Inovação</h3>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="w-full flex-shrink-0 relative">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2021-10-28fotosfachadareitoria-2-1024x683.jpg" alt="Reitoria UEM" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2021-10-28fotosfachadareitoria-2-1024x683.jpg" alt="Reitoria UEM" loading="lazy" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 md:p-10">
                             <h3 class="text-white text-xl md:text-3xl font-bold">Estrutura de Excelência</h3>
                         </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="w-full flex-shrink-0 relative">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/oU0Gh-uem-tera-cinco-novos-cursos-de-graduacao-em-2025-veja-quais.webp" alt="Campus UEM" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/oU0Gh-uem-tera-cinco-novos-cursos-de-graduacao-em-2025-veja-quais.webp" alt="Campus UEM" loading="lazy" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 md:p-10">
                             <h3 class="text-white text-xl md:text-3xl font-bold">Polo de Pesquisa Científica</h3>
                         </div>
@@ -160,6 +192,12 @@
                 <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 backdrop-blur-md text-white p-3 md:p-4 rounded-full transition opacity-0 group-hover:opacity-100 focus:opacity-100">
                     <i class="fas fa-chevron-right text-xl"></i>
                 </button>
+                <!-- Carousel Dots -->
+                <div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    <button class="w-2.5 h-2.5 rounded-full bg-white/60 hover:bg-white transition-all" data-index="0"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/60 transition-all" data-index="1"></button>
+                    <button class="w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/60 transition-all" data-index="2"></button>
+                </div>
             </div>
         </div>
     </section>
@@ -171,6 +209,9 @@
                 <span class="text-accent-green font-bold tracking-wider uppercase text-sm mb-2 block">O que você vai conquistar</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-uem-dark tracking-tight">Expectativas do Curso</h2>
             </div>
+            <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="hidden lg:block text-center text-accent-green hover:text-accent-hover font-semibold text-sm mb-8 transition">
+                Quero me inscrever <i class="fas fa-arrow-right ml-1"></i>
+            </a>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Expectativa 1 -->
@@ -221,7 +262,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-blue-200 transition-colors shadow-sm">
+                <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-sm">
                     <div class="flex items-center gap-4 mb-6">
                         <span class="text-3xl md:text-4xl">🫀</span>
                         <h3 class="text-xl md:text-2xl font-bold text-gray-900">Fisiologia do Exercício</h3>
@@ -233,7 +274,7 @@
                         <li class="flex items-start gap-3"><i class="fas fa-check text-accent-green mt-1"></i> <span class="text-gray-700 text-sm md:text-base">Atividade física em populações especiais</span></li>
                     </ul>
                 </div>
-                <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-blue-200 transition-colors shadow-sm">
+                <div class="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-sm">
                     <div class="flex items-center gap-4 mb-6">
                         <span class="text-3xl md:text-4xl">🧠</span>
                         <h3 class="text-xl md:text-2xl font-bold text-gray-900">Neurofisiologia</h3>
@@ -245,6 +286,11 @@
                         <li class="flex items-start gap-3"><i class="fas fa-check text-accent-green mt-1"></i> <span class="text-gray-700 text-sm md:text-base">Controle motor somático e Sistemas neurovegetativos</span></li>
                     </ul>
                 </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://fadec.conveniar.com.br/Eventos/Forms/Servicos/EventoDados.aspx?action=30" target="_blank" class="inline-block bg-accent-green hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-lg shadow-md transition-all hover:scale-105">
+                    Quero me inscrever <i class="fas fa-arrow-right ml-1"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -318,17 +364,17 @@
                 <!-- Prof Kellen -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/b0ec0262-3811-4468-bc48-5177fcdef3ce.jpeg" alt="Dra. Kellen" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/b0ec0262-3811-4468-bc48-5177fcdef3ce.jpeg" alt="Dra. Kellen" loading="lazy" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dra. Kellen</h4>
-                    <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Docente e Pesquisadora</p>
+                    <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dra. Kellen Brunaldi</h4>
+                    <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Biofísica de Membranas</p>
                     <a href="http://lattes.cnpq.br/7274065928848730" target="_blank" class="mt-auto w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-semibold py-3 rounded-xl transition-colors block">Lattes <i class="fas fa-external-link-alt ml-1"></i></a>
                 </div>
 
                 <!-- Prof Jairo -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/18364322-a849-47d0-844f-1de323d9c158.jpeg" alt="Dr. Jairo" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/18364322-a849-47d0-844f-1de323d9c158.jpeg" alt="Dr. Jairo" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dr. Jairo Augusto Berti</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Fisiologia do Exercício</p>
@@ -338,7 +384,7 @@
                 <!-- Prof Maria Ida -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/af1392fa-9a40-4fff-90bd-2b34526e059b.jpeg" alt="Dra. Maria Ida" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/af1392fa-9a40-4fff-90bd-2b34526e059b.jpeg" alt="Dra. Maria Ida" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dra. Maria Ida B. R. Speziali</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Neurofisiologia da dor</p>
@@ -348,7 +394,7 @@
                 <!-- Prof Rosângela -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/37f17e48-f91e-4c06-8186-f92efa7081ac.jpeg" alt="Dra. Rosângela" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/37f17e48-f91e-4c06-8186-f92efa7081ac.jpeg" alt="Dra. Rosângela" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dra. Rosângela</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Docente e Pesquisadora</p>
@@ -358,7 +404,7 @@
                 <!-- Prof Felipe -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2291795c-ec29-431a-854c-f25009b2fc70.jpeg" alt="Dr. Felipe" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/2291795c-ec29-431a-854c-f25009b2fc70.jpeg" alt="Dr. Felipe" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dr. Felipe O. Matos</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Neurociências e Eletrofisiologia</p>
@@ -368,7 +414,7 @@
                 <!-- Prof Sidney -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/5e5edb30-cfe0-481e-bec6-df1c0aabf62b.jpeg" alt="Dr. Sidney" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/5e5edb30-cfe0-481e-bec6-df1c0aabf62b.jpeg" alt="Dr. Sidney" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dr. Sidney B. Peres</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Biologia Celular e Tecido adiposo</p>
@@ -378,7 +424,7 @@
                 <!-- Prof Solange -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col h-full">
                     <div class="w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full overflow-hidden mb-4 border-4 border-gray-50 flex items-center justify-center">
-                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/b8dcf140-4dda-4b5e-92d9-9596b8ef16a2.jpeg" alt="Dra. Solange" class="w-full h-full object-cover">
+                        <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/b8dcf140-4dda-4b5e-92d9-9596b8ef16a2.jpeg" alt="Dra. Solange" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1">Dra. Solange M. F. de Moraes</h4>
                     <p class="text-xs md:text-sm text-uem-blue font-medium mb-4">Fisiologia do exercício e obesidade</p>
@@ -393,46 +439,54 @@
     <section id="faq" class="py-16 md:py-24 bg-white border-t border-gray-100">
         <div class="max-w-3xl mx-auto px-4 md:px-6">
             <h2 class="text-3xl md:text-5xl font-bold text-center text-uem-dark mb-12 tracking-tight">Perguntas Frequentes</h2>
-            <div class="space-y-4">
-                <details class="group bg-gray-50 border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg">
-                        O curso é totalmente EAD?
-                        <span class="transition duration-300 group-open:-rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                    </summary>
-                    <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
-                        Com modalidade híbrida, as disciplinas são desenvolvidas via ambiente virtual de aprendizado, pela plataforma Moodle, complementada por encontros presenciais mensais aos sábados no Câmpus sede da UEM.
+            <div class="space-y-4" id="faq-accordion">
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden">
+                    <button class="faq-btn flex items-center justify-between w-full p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg text-left">
+                        <span>O curso é totalmente EAD?</span>
+                        <span class="faq-icon transition-transform duration-300"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
+                            Com modalidade híbrida, as disciplinas são desenvolvidas via ambiente virtual de aprendizado, pela plataforma Moodle, complementada por encontros presenciais mensais aos sábados no Câmpus sede da UEM.
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-gray-50 border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg">
-                        Qual é o público-alvo da especialização?
-                        <span class="transition duration-300 group-open:-rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                    </summary>
-                    <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
-                        O curso é destinado a profissionais graduados em Educação Física, Fisioterapia, Nutrição, Medicina, Enfermagem, Ciências Biológicas e áreas afins que buscam aprofundamento na fisiologia humana e do exercício.
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden">
+                    <button class="faq-btn flex items-center justify-between w-full p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg text-left">
+                        <span>Qual é o público-alvo da especialização?</span>
+                        <span class="faq-icon transition-transform duration-300"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
+                            O curso é destinado a profissionais graduados em Educação Física, Fisioterapia, Nutrição, Medicina, Enfermagem, Ciências Biológicas e áreas afins que buscam aprofundamento na fisiologia humana e do exercício.
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-gray-50 border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg">
-                        Qual a carga horária e duração do curso?
-                        <span class="transition duration-300 group-open:-rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                    </summary>
-                    <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
-                        O curso possui duração média de 18 a 24 meses, cumprindo a carga horária exigida pelo MEC de 360 horas de disciplinas, além do tempo destinado para a elaboração e defesa do Trabalho de Conclusão de Curso (TCC) ou Artigo Científico.
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden">
+                    <button class="faq-btn flex items-center justify-between w-full p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg text-left">
+                        <span>Qual a carga horária e duração do curso?</span>
+                        <span class="faq-icon transition-transform duration-300"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
+                            O curso possui duração média de 18 a 24 meses, cumprindo a carga horária exigida pelo MEC de 360 horas de disciplinas, além do tempo destinado para a elaboração e defesa do Trabalho de Conclusão de Curso (TCC) ou Artigo Científico.
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-gray-50 border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg">
-                        O TCC é obrigatório?
-                        <span class="transition duration-300 group-open:-rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                    </summary>
-                    <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
-                        Sim, a elaboração do Trabalho de Conclusão de Curso (sob a forma de monografia ou artigo) é um requisito obrigatório para a obtenção do certificado de Especialista emitido pela Universidade Estadual de Maringá.
+                <div class="faq-item bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden">
+                    <button class="faq-btn flex items-center justify-between w-full p-5 md:p-6 cursor-pointer font-semibold text-gray-900 text-base md:text-lg text-left">
+                        <span>O TCC é obrigatório?</span>
+                        <span class="faq-icon transition-transform duration-300"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-5 md:px-6 pb-5 md:pb-6 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-200 pt-4">
+                            Sim, a elaboração do Trabalho de Conclusão de Curso (sob a forma de monografia ou artigo) é um requisito obrigatório para a obtenção do certificado de Especialista emitido pela Universidade Estadual de Maringá.
+                        </div>
                     </div>
-                </details>
+                </div>
             </div>
         </div>
     </section>
@@ -454,8 +508,8 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/branco-uem-modelo-01.png" alt="UEM" class="h-6 opacity-70 hover:opacity-100 transition">
-                    <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/logo-dfs-03.png" alt="DFS" class="h-6 opacity-70 hover:opacity-100 transition">
+                    <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/branco-uem-modelo-01.png" alt="UEM" loading="lazy" class="h-6 opacity-70 hover:opacity-100 transition">
+                    <img src="https://github.com/BrunoCafe7/images/raw/122e2a226d3ce25c8e3b6332f1f24fbfe445d0d0/logo-dfs-03.png" alt="DFS" loading="lazy" class="h-6 opacity-70 hover:opacity-100 transition">
                 </div>
                 <p class="text-sm leading-relaxed max-w-sm">Universidade Estadual de Maringá<br>Departamento de Ciências Fisiológicas<br>Avenida Colombo, 5790 - Bloco H79, sala 111<br>CEP 87020-900 - Maringá-PR</p>
             </div>
@@ -488,67 +542,184 @@
 
     <!-- Scripts -->
     <script>
-        // Lógica de Scroll do Header e controle de cor da Logo
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function openMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            menuIcon.classList.add('fa-bars');
+            menuIcon.classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('translate-x-full')) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+            });
+        }
+
+        // Scroll Header + Logos
         window.addEventListener('scroll', () => {
             const header = document.getElementById('navbar');
             const links = document.getElementById('nav-links');
             const logoUem = document.getElementById('logo-uem');
             const logoDfs = document.getElementById('logo-dfs');
+            const scrollBtn = document.getElementById('scroll-top-btn');
             
             if (window.scrollY > 50) {
-                // Estado com fundo branco
                 header.classList.remove('bg-transparent', 'py-4');
                 header.classList.add('bg-white', 'shadow-md', 'py-3');
                 links.classList.remove('text-white');
                 links.classList.add('text-gray-600');
-                
-                // UEM: Como a original é branca, usamos brightness(0) para deixá-la preta/escura
                 logoUem.style.filter = "brightness(0)"; 
-                // DFS: Tira o filtro para voltar as cores nativas (azul/verde)
                 logoDfs.style.filter = "none"; 
             } else {
-                // Estado transparente
                 header.classList.add('bg-transparent', 'py-4');
                 header.classList.remove('bg-white', 'shadow-md', 'py-3');
                 links.classList.add('text-white');
                 links.classList.remove('text-gray-600');
-                
-                // UEM: Tira o filtro, volta a ser a imagem branca original
                 logoUem.style.filter = "none";
-                // DFS: Aplica filtro pra ficar toda branca
                 logoDfs.style.filter = "brightness(0) invert(1)";
+            }
+
+            // Scroll to Top Button
+            if (scrollBtn) {
+                if (window.scrollY > 400) {
+                    scrollBtn.classList.remove('opacity-0', 'translate-y-4');
+                    scrollBtn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    scrollBtn.classList.add('opacity-0', 'translate-y-4');
+                    scrollBtn.classList.remove('opacity-100', 'translate-y-0');
+                }
             }
         });
 
-        // Lógica do Carrossel UEM
-        const carousel = document.getElementById('uem-carousel');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentIndex = 0;
-        
-        if(carousel) {
+        // Scroll to Top
+        const scrollBtn = document.getElementById('scroll-top-btn');
+        if (scrollBtn) {
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Carrossel UEM com Dots
+        (function() {
+            const carousel = document.getElementById('uem-carousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dots = document.querySelectorAll('#carousel-dots button');
+            let currentIndex = 0;
+
+            if (!carousel) return;
             const totalSlides = carousel.children.length;
 
             function updateCarousel() {
                 carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-white/60', i === currentIndex);
+                    dot.classList.toggle('bg-white/30', i !== currentIndex);
+                });
             }
 
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+            function goToSlide(index) {
+                currentIndex = index;
                 updateCarousel();
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+                    updateCarousel();
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+                    updateCarousel();
+                });
+            }
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(parseInt(dot.dataset.index));
+                });
             });
 
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-                updateCarousel();
-            });
-
-            // Autoplay Carrossel
             setInterval(() => {
                 currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
                 updateCarousel();
             }, 5000);
-        }
+        })();
+
+        // Countdown Timer
+        (function() {
+            const timerEl = document.getElementById('countdown-timer');
+            if (!timerEl) return;
+
+            const targetDate = new Date('2026-07-14T23:59:59').getTime();
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    timerEl.textContent = 'Inscrições encerradas!';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                timerEl.textContent = `Faltam ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
+
+        // FAQ Accordion suave
+        (function() {
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('.faq-icon');
+                    const isOpen = content.classList.contains('max-h-0');
+
+                    // Fecha todos
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        c.classList.add('max-h-0');
+                        c.classList.remove('max-h-[500px]');
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(i => {
+                        i.classList.remove('rotate-180');
+                    });
+
+                    // Abre o clicado se estava fechado
+                    if (isOpen) {
+                        content.classList.remove('max-h-0');
+                        content.classList.add('max-h-[500px]');
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>
